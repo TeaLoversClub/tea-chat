@@ -1,17 +1,24 @@
 <?php
 
-class Router {
-    
-    public function run() {
-        $sessionStorage = new Session();
-        $login = $sessionStorage->get("login", null);
+class Router
+{
+    private array $routes = [
+        '/' => [ChatController::class],
+        '/login' => [LoginController::class],
+        '/logout' => [LoginController::class, 'logoutAction'],
+    ];
 
-        if (!$login) {
-            $loginController = new LoginController();
-            $loginController->mainAction();
-        } else {
-            $chatController = new ChatController();
-            $chatController->mainAction();
+    public function run()
+    {
+        $uri = $_SERVER['REQUEST_URI'];
+
+        if (!isset($this->routes[$uri])) {
+            echo '404';
+            return;
         }
+
+        $controller = new $this->routes[$uri][0];
+        $action = $this->routes[$uri][1] ?? 'mainAction';
+        $controller->$action();
     }
 }
