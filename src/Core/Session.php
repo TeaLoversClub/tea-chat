@@ -1,5 +1,7 @@
 <?php
 
+namespace TeaLovers\TeaChat\Core;
+
 class Session {
 
     use ServerArrayAccessTrait;

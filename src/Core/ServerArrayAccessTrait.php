@@ -1,5 +1,7 @@
 <?php
 
+namespace TeaLovers\TeaChat\Core;
+
 trait ServerArrayAccessTrait {
 
     private array $serverArray;

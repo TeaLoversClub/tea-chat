@@ -1,5 +1,10 @@
 <?php
 
+namespace TeaLovers\TeaChat\Core;
+
+use TeaLovers\TeaChat\Controller\ChatController;
+use TeaLovers\TeaChat\Controller\LoginController;
+
 class Router
 {
     private array $routes = [

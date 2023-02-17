@@ -1,0 +1,16 @@
+{
+    "name": "tea-lovers/tea-chat",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "TeaLovers\\TeaChat\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tea Lover",
+            "email": "tea@lover.com"
+        }
+    ],
+    "require": {}
+}

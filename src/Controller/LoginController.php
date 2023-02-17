@@ -1,5 +1,12 @@
 <?php
 
+namespace TeaLovers\TeaChat\Controller;
+
+use TeaLovers\TeaChat\Core\Cookie;
+use TeaLovers\TeaChat\Core\Post;
+use TeaLovers\TeaChat\Core\Session;
+use TeaLovers\TeaChat\Core\View;
+
 class LoginController
 {
     public function mainAction()
