@@ -6,6 +6,7 @@ use TeaLovers\TeaChat\Core\Cookie;
 use TeaLovers\TeaChat\Core\Post;
 use TeaLovers\TeaChat\Core\Session;
 use TeaLovers\TeaChat\Core\View;
+use TeaLovers\TeaChat\Utils\CapchaWrapper;
 
 class LoginController
 {
@@ -15,8 +16,13 @@ class LoginController
         $post = new Post();
         $view = new View();
         $cookie = new Cookie();
+        $captchaWrapper = new CapchaWrapper();
 
-        if (!$session->has("login") && $post->has("user_login")) {
+        if (
+            !$session->has("login") &&
+            $post->has("user_login") &&
+            $captchaWrapper->checkCaptcha($post->get("captcha"))
+        ) {
             $session->add("login", $post->get("user_login"));
         }
 
@@ -27,7 +33,8 @@ class LoginController
         }
 
         $view->render('login', [
-            'theme' => $cookie->get('theme')
+            'theme' => $cookie->get('theme'),
+            'captcha' => $captchaWrapper->getCaptcha()
         ]);
     }
 

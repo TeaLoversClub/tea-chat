@@ -9,8 +9,17 @@
     "authors": [
         {
             "name": "Tea Lover",
-            "email": "tea@lover.com"
+            "email": "tea@lover.com",
+            "homepage": "https://www.youtube.com/@tea-club"
         }
     ],
-    "require": {}
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/TeaLoversClub/Captcha"
+        }
+    ],    
+    "require": {
+        "gregwar/captcha": "dev-master"
+    }
 }
